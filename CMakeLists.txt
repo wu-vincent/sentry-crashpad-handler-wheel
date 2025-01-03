@@ -5,7 +5,7 @@ message(STATUS "sentry-crashpad-handler-wheel version: ${SKBUILD_PROJECT_VERSION
 string(REGEX MATCH "^([0-9]+)\.([0-9]+)\.([0-9]+)" CRASHPAD_HANDLER_VERSION "${SKBUILD_PROJECT_VERSION}")
 message(STATUS "crashpad_handler version: ${CRASHPAD_HANDLER_VERSION}")
 
-# Define a build rule clang-format
+# Define a build rule
 set(SENTRY_DOWNLOAD_URL "https://github.com/getsentry/sentry-native/releases/download/${CRASHPAD_HANDLER_VERSION}/sentry-native.zip")
 include(ExternalProject)
 if (WIN32)
@@ -40,7 +40,7 @@ if (STRIP_EXECUTABLE)
             COMMAND ${STRIP_EXECUTABLE} ${crashpad-handler-executable}
             COMMENT "Stripping crashpad_handler executable for size reduction"
     )
-    add_dependencies(strip-clang-format build-clang-format)
+    add_dependencies(strip-crashpad-handler build-crashpad-handler)
 endif ()
 
 # Define an installation rule that copies the executable to our Python package
