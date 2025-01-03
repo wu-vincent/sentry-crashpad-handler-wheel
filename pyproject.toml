@@ -54,3 +54,4 @@ before-all = "yum install -y libcurl-devel zlib-devel"
 [[tool.cibuildwheel.overrides]]
 select = "*-musllinux*"
 before-all = "apk add curl-dev zlib-dev"
+environment = { CXXFLAGS = "-D_LARGEFILE64_SOURCE" }
