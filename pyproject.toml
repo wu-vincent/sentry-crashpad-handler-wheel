@@ -44,6 +44,8 @@ logging.level = "DEBUG"
 build-verbosity = 3
 # Set CMAKE_GENERATOR env var which is respected by scikit-build-core to use Ninja on all platforms
 environment = "CMAKE_GENERATOR=Ninja"
+# Use manylinux_2_28 for GCC compatibility with C++20
+manylinux-x86_64-image = "manylinux_2_28"
 
 [[tool.cibuildwheel.overrides]]
 select = "*-manylinux*"
