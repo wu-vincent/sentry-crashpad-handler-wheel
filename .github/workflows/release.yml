@@ -29,6 +29,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         # emulated linux: generate 6 matrix combinations with qemu on ubuntu:
         arch: [ "aarch64", "ppc64le", "s390x" ]
