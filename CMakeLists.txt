@@ -5,6 +5,8 @@ message(STATUS "sentry-crashpad-handler-wheel version: ${SKBUILD_PROJECT_VERSION
 string(REGEX MATCH "^([0-9]+)\.([0-9]+)\.([0-9]+)" CRASHPAD_HANDLER_VERSION "${SKBUILD_PROJECT_VERSION}")
 message(STATUS "crashpad_handler version: ${CRASHPAD_HANDLER_VERSION}")
 
+set(CMAKE_CXX_STANDARD 20)
+
 # Define a build rule
 set(SENTRY_DOWNLOAD_URL "https://github.com/getsentry/sentry-native/releases/download/${CRASHPAD_HANDLER_VERSION}/sentry-native.zip")
 include(ExternalProject)
