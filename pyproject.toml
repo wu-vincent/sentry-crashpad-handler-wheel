@@ -44,3 +44,11 @@ logging.level = "DEBUG"
 build-verbosity = 3
 # Set CMAKE_GENERATOR env var which is respected by scikit-build-core to use Ninja on all platforms
 environment = "CMAKE_GENERATOR=Ninja"
+
+[[tool.cibuildwheel.overrides]]
+select = "*-manylinux*"
+before-all = "yum install -y libcurl-devel zlib-devel"
+
+[[tool.cibuildwheel.overrides]]
+select = "*-musllinux*"
+before-all = "apk add curl-dev zlib-dev"
